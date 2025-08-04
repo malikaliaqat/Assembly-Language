@@ -1,0 +1,25 @@
+include irvine32.inc
+.data
+msg byte "enter a number=",0
+msg1 byte "wrong choice =",0
+.code 
+main proc
+mov edx , offset msg
+call writestring 
+call readint 
+ mov ecx,eax
+ .if (eax<=6)
+ mov eax,1
+  fact:
+  mul ecx
+  loop  fact
+  call writedec
+  call crlf
+  .else 
+  mov edx , offset msg1
+call writestring 
+.endif
+
+  exit 
+  main endp 
+  end main
