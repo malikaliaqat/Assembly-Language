@@ -1,0 +1,38 @@
+include irvine32.inc
+.data
+msg  byte "Input Table Number:", 0   
+msg1 byte " * ", 0                   
+msg2 byte " = ", 0  
+k byte "Enter Length",0                
+.code
+main proc
+mov edx,offset msg
+call writestring
+call readint
+mov ecx,eax
+call crlf
+mov edx,offset k
+call writestring
+call readint
+mov esi,eax
+mov ebx,1
+.while ebx<=esi
+     mov eax,ecx
+	 call writedec
+          
+        mov edx,offset msg1
+		call writestring
+		mov eax,ebx
+		call writedec
+		mov edx,offset msg2
+		call writestring
+	    mul ecx
+		call writedec
+		call crlf
+			inc ebx
+    .endw
+
+
+exit
+main endp
+end main
