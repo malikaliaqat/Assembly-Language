@@ -1,0 +1,80 @@
+-----------------------------------------------(+1,-2,3*,4/)---------------------------------
+include irvine32.inc
+.data
+msg1 byte " 1 for Addition",0
+msg2 byte " 2 for subtraction",0
+msg3 byte " 3 for Multiplication",0
+msg4 byte " 4 for Division",0
+msg5 byte "Enter your choice ",0
+msg6 byte " Enter frist number",0
+msg7 byte " Enter sec number",0
+msg8 byte " add =  ",0
+msg9 byte " sub = ",0
+msg10 byte " mul = ",0
+msg11 byte " div = ",0
+msg12 byte " wrong number",0
+.code
+main proc
+
+mov edx,offset msg1
+call writestring
+call crlf
+
+mov edx,offset msg2
+call writestring
+call crlf 
+
+mov edx,offset msg3
+call writestring
+call crlf
+
+mov edx,offset msg4
+call writestring
+call crlf
+
+mov edx,offset msg5
+call writestring
+call readint
+mov ebx,eax
+call crlf
+
+mov edx,offset msg6
+call writestring
+call readint
+mov ecx,eax
+call crlf
+ 
+mov edx,offset msg7
+call writestring
+call readint
+call crlf
+
+.if(ebx==1)
+mov edx,offset msg8
+call writestring
+add eax,ecx
+
+.elseif(ebx==2)
+mov edx,offset msg9
+call writestring
+sub eax,ecx
+
+.elseif(ebx==3)
+mov edx,offset msg10
+call writestring
+imul eax,ecx
+
+.elseif(ebx==4)
+mov edx,offset msg11
+call writestring
+mov edx,0
+div eax
+
+.else
+mov edx,offset msg12
+call writestring
+.endif
+call writeint
+exit
+main endp
+end main
