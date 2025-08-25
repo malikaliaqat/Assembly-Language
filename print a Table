@@ -31,8 +31,6 @@ mov ebx,1
 		call crlf
 			inc ebx
     .endw
-
-
 exit
 main endp
 end main
