@@ -1,13 +1,7 @@
 include irvine32.inc
-
 .data
-
 msg1 byte " Hello BSC 5th Semester",0
-
-
-
 .code
-
 main proc
 
 	mov edx,offset msg1
@@ -19,3 +13,4 @@ main proc
 exit
 main endp
 end main
+
