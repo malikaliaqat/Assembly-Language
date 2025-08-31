@@ -1,0 +1,27 @@
+                                               
+---------------------------------------------------------------------------------------------------------------------
+;simple statirc print 
+		 ;*
+		 ;**
+		 ;*
+		 ;**
+		 ;***
+include irvine32.inc
+.data 
+msg byte "*",0
+.code 
+main proc 
+mov eax,1
+.while eax<=5
+mov ebx,1
+.while ebx<=eax
+ mov edx, offset msg 
+ call writestring 
+ inc ebx
+ .endw
+ call crlf
+ inc eax
+ .endw
+ exit 
+ main endp
+ end main 
