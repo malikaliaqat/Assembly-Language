@@ -1,0 +1,25 @@
+include irvine32.inc
+.data
+m1 byte"Enter year",0
+m2 byte"leaf",0
+m3 byte"Not leaf",0
+.code
+main proc
+mov edx,offset m1
+call writestring
+call readint
+mov edx,0
+mov ecx,4
+
+div ecx
+.if edx==0
+mov edx,offset m2
+call writestring
+.else
+mov edx,offset m3
+call writestring
+call crlf
+.endif
+exit 
+main endp
+end main
