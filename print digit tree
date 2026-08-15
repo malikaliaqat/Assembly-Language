@@ -1,0 +1,24 @@
+0
+11
+222
+3333
+44444
+
+include irvine32.inc
+.data 
+.code 
+main proc 
+mov eax,0
+.while eax<5
+mov ebx,0
+.while ebx<=eax
+ mov ecx,ebx
+ call writedec
+ inc ebx
+ .endw
+ call crlf
+ inc eax
+ .endw
+ exit 
+ main endp
+ end main 
