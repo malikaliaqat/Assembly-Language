@@ -1,0 +1,13 @@
+-----------------------------------------------(10-1)---------------------------------
+ include irvine32.inc
+.code
+main proc        ;Syntax
+mov eax,10 ;initializaton
+.while eax>0;.while Condition 
+ call writedec   ;Body
+ dec eax    ;increment
+ call crlf
+ .endw            ;Endwhile
+ exit
+ main endp
+ end main
